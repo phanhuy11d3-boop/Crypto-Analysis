@@ -1,0 +1,38 @@
+version: 2
+
+models:
+  - name: stg_etherscan_logs
+    description: "Cleaned bridge deposit events from Ethereum Mainnet"
+    columns:
+      - name: transaction_hash
+        tests:
+          - not_null
+      - name: unique_message_hash
+        description: "Unique bridge event ID"
+        tests:
+          - unique
+          - not_null
+      - name: from_address
+        description: "User wallet address"
+        tests:
+          - not_null
+      - name: value_eth
+        tests:
+          - not_null
+      - name: block_timestamp
+        tests:
+          - not_null
+
+  - name: stg_linea_transactions
+    description: "Cleaned Linea network transactions"
+    columns:
+      - name: transaction_hash
+        tests:
+          - unique
+          - not_null
+      - name: from_address
+        tests:
+          - not_null
+      - name: block_timestamp
+        tests:
+          - not_null

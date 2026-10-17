@@ -1,0 +1,66 @@
+version: 2
+
+models:
+  - name: dim_users
+    description: "Master user dimension table - one row per user"
+    columns:
+      - name: user_address
+        description: "Primary key"
+        tests:
+          - unique
+          - not_null
+      - name: cohort_month
+        tests:
+          - not_null
+      - name: user_segment
+        tests:
+          - accepted_values:
+              values: ['Whale', 'Retail']
+      - name: is_churned
+        description: "Observed two-month inactivity; NULL before two months of observation. Incomplete API data may bias this."
+      - name: engagement_status
+        tests:
+          - accepted_values:
+              values: ['High Value Retained (3+ months, Whale)', 'Retained (3+ months)', 'Engaged (1-2 months)', 'No observed successful activity']
+
+  - name: fct_cohort_retention
+    description: "Cohort retention matrix - the main deliverable"
+    tests:
+      - unique:
+          column_name: "cohort_month || '-' || user_segment || '-' || months_since_bridge"
+    columns:
+      - name: cohort_month
+        tests:
+          - not_null
+      - name: user_segment
+        tests:
+          - not_null
+      - name: months_since_bridge
+        tests:
+          - not_null
+      - name: cohort_size
+        tests:
+          - not_null
+      - name: active_users
+        tests:
+          - not_null
+      - name: retention_rate
+        description: "Percentage of all cohort users active; NULL for an incomplete calendar month"
+
+  - name: mart_wallet_trading_sessions
+    description: "Successful outgoing Linea activity after first observed bridge, grouped by disjoint UTC hours; historical table name retained"
+    columns:
+      - name: user_address
+        description: "Primary key - wallet address"
+        tests:
+          - unique
+          - not_null
+      - name: dominant_session
+        description: "Trading session with most transactions"
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['asian', 'european', 'american', 'off_hours']
+      - name: total_tx_count
+        tests:
+          - not_null

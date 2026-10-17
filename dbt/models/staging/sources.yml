@@ -1,0 +1,14 @@
+version: 2
+
+sources:
+  - name: linea_analytics
+    database: linea_analytics
+    schema: raw
+    tables:
+        # data/transformed/transformed_logs.csv -> raw.etherscan_logs
+      - name: etherscan_logs
+        description: "Bridge deposit events from Ethereum Mainnet to Linea."
+        
+        # data/transformed/transformed_transactions.csv -> raw.linea_transactions
+      - name: linea_transactions
+        description: "Transactions on the Linea network."

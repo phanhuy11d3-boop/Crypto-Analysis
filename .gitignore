@@ -1,0 +1,72 @@
+# Environment & Secrets
+.env
+*.env
+.env.*
+
+# Virtual environment
+linea_user_analytics_env/
+.venv/
+venv/
+env/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+
+# Data files (too large for git)
+data/raw/*.csv
+data/raw/*.json
+data/processed/*.csv
+data/processed/*.json
+data/transformed/*.csv
+data/transformed/*.json
+project_context/
+temp/
+
+# dbt
+# dbt
+dbt/target/
+dbt/logs/
+dbt/dbt_packages/
+dbt/profiles.yml
+dbt_project/target/
+dbt_project/logs/
+dbt_project/dbt_packages/
+.user.yml
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.aiexclude
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+linea_user_analytics_env/
+data/transformed/transformed_transactions.csv
+
+data/raw/sample_*/
+.local-postgres/
+
+# Local datasets and generated dependencies
+data/
+dbt_packages/

@@ -1,0 +1,37 @@
+name: 'linea_analytics'
+version: '1.0.0'
+config-version: 2
+
+profile: 'linea_analytics'
+
+# Canonical UTC window for both Python and dbt. End date is inclusive.
+vars:
+  extraction_start_date: '2026-01-01'
+  extraction_end_date: '2026-10-01'
+
+model-paths: ["models"]
+seed-paths: ["seeds"]
+test-paths: ["tests"]
+analysis-paths: ["analyses"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+target-path: "target"
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+models:
+  linea_analytics:
+    # Everything in models/staging/ will go to schema 'staging'
+    staging:
+      +schema: staging
+      +materialized: view
+
+    intermediate:
+      +schema: intermediate
+      +materialized: view
+
+    marts:
+      +schema: marts
+      +materialized: table

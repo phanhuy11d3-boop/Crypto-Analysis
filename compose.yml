@@ -1,0 +1,22 @@
+services:
+  warehouse:
+    image: postgres:16
+    container_name: linea-analytics-dwh
+    restart: unless-stopped
+    # Windows JDBC clients may send this legacy alias; newer tzdata omits it.
+    command: ["sh", "-c", "ln -sf /usr/share/zoneinfo/Asia/Ho_Chi_Minh /usr/share/zoneinfo/Asia/Saigon && exec docker-entrypoint.sh postgres"]
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-linea_analytics}
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env}
+    ports:
+      - "127.0.0.1:${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - warehouse_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      interval: 5s
+      timeout: 3s
+      retries: 15
+volumes:
+  warehouse_data:

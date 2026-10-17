@@ -1,0 +1,24 @@
+Date_year_month,Product/Feature,Short Description
+2023-03,Public Testnet Launch,Initial public zkEVM testnet for developers and early testing
+2023-07,Mainnet Alpha Launch,zkEVM mainnet alpha with integrations and live transactions
+2023-07,First NFT Collection,Open mint for Voyage NFT participants
+2023-08,Public Mainnet Completion,Full public mainnet rollout for all users
+2023-10,Voyage Campaign,Six-week DeFi points campaign with MetaMask/Intract
+2024-02,Linea Park Campaign,Follow-up ecosystem growth and points event
+2025-01,Prover Completeness (Beta),Achieved full London EVM coverage
+2025-01,ERC-20 Gas Token,Enabled gas payments in ERC-20 tokens
+2025-04,Consensus Layer Upgrade (QBFT/Maru),Migrated to QBFT for better EVM compatibility
+2025-07,Roadmap Update,"Announced ETH burn, native staking, airdrop details"
+2025-08,Product Roadmap Update,Detailed nine-month plan for performance/decentralization
+2025-07,Limitless Prover & Small Fields,"Removed TX limits, enabled 10x faster proofs"
+2025-07,Burn Mechanism Launch,"20% gas fees burned, 80% for LINEA buyback/burn"
+2025-07,Pectra EVM Upgrade,Prague EVM upgrade with new opcodes & account abstraction
+2025-09,LINEA Token Launch (TGE),Native token launch + community airdrop to 750K wallets
+2025-10,Native ETH Staking Launch,Automatic staking rewards for bridged ETH
+2025-10,Native Yield Feature,Staking rewards distributed to DeFi liquidity providers
+2025-10,Stage-1 Trust Minimization,"Added fallback, 7-day upgrade delay, expanded Security Council"
+2025-12,Fusaka Upgrade,Simultaneous upgrade for zkEVM parity and new features
+2026-01,Type-1 zkEVM Achievement,Full Ethereum equivalence and native L1 integration
+2026-01,Multi-Prover Implementation,"Added backup proof systems (e.g., TEEs)"
+2026-04,Real-Time Proofs & 0.5 gGas/s,"Target ~5,000 TPS and real-time Ethereum proofs"
+2027-01,Full Permissionless DPoS & Multi-Client,"Open staking/slashing, ~20,000 TPS with client diversity"
